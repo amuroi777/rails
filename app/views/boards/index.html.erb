@@ -23,6 +23,7 @@
       <td><%= board.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
       <td><%= board.updated_at.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
       <td><%= link_to '詳細', board, class: 'btn btn-outline-dark' %></td>
+      <td><%= link_to '削除', board, class: 'btn btn-outline-dark', data: { turbo_method: :delete}%></td>
     </tr>
     <% end %>
   </tbody>

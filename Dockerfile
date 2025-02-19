@@ -21,4 +21,8 @@ RUN bundle install
 
 RUN apk update && apk add --no-cache build-base mysql-dev tzdata
 
+# node.jsのインストール
+RUN apk add --no-cache nodejs npm
+
+
 
