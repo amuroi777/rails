@@ -10,8 +10,14 @@ class BoardsController < ApplicationController
 	end
 
 	def create
-		board = Board.create(board_params)
-		redirect_to board
+		board = Board.new(board_params)
+		if board.save
+			flash[:notice] = "「#{board.title}」の掲示板を作成しました"
+			redirect_to board
+		else
+			flash[:error_messages] = board.errors.full_messages
+			redirect_to new_board_path	
+		end
 	end
 
 	def show
