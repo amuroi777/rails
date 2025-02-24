@@ -21,16 +21,19 @@ class BoardsController < ApplicationController
 	end
 
 	def show
-		@comment = @board.comments.new
+		@comment = Comment.new(board_id: @board.id)
 	end
 
 	def edit
 	end
 
 	def update
-			@board.update(board_params)
-
-			redirect_to @board
+			if @board.update(board_params)
+		  	redirect_to @board
+		else
+			flash[:error_messages] = board.errors.full_messages
+			redirect_to new_board_path	
+		end
 	end
 
 	def destroy

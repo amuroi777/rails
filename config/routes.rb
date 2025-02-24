@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   # get 'boards/:id', to: 'boards#show'
 
   resources :boards
-  resources :comments, only: %i[create destroy]
+  resources :comments, only: %i[create destroy edit update]
 end
